@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" >
+    <title>Chatbot Interface</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Chatbot Interface</h1>
+        <div class="chat-container" id="chat-container">
+            {% if user_input %}
+                <div class="user-message">You: {{ user_input }}</div>
+            {% endif %}
+            {% if bot_response %}
+                <div class="bot-message">Bot: {{ bot_response }}</div>
+            {% endif %}
+        </div>
+        <form action="/chatbot" method="post" class="input-container">
+            <label for="user_input">You:</label>
+            <input type="text" id="user_input" name="user_input">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
